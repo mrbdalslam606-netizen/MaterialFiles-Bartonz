@@ -14,6 +14,11 @@
     <string name="pref_key_file_list_persistent_drawer_open">key_file_list_persistent_drawer_open</string>
     <bool name="pref_default_value_file_list_persistent_drawer_open">true</bool>
     <string name="pref_key_file_list_show_hidden_files">key_file_list_show_hidden_files</string>
+    <string name="pref_key_last_opened_folder">key_last_opened_folder</string>
+    <string name="pref_key_remember_last_opened_folder">key_remember_last_opened_folder</string>
+    <bool name="pref_default_value_remember_last_opened_folder">false</bool>
+    <string name="pref_key_show_full_file_names">key_show_full_file_names</string>
+    <bool name="pref_default_value_show_full_file_names">false</bool>
     <bool name="pref_default_value_file_list_show_hidden_files">false</bool>
     <string name="pref_key_file_list_view_type">key_file_list_view_type</string>
     <string name="pref_default_value_file_list_view_type">0</string>

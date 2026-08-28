@@ -49,6 +49,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.leinardi.android.speeddial.SpeedDialView
+import java8.nio.file.Files
 import java8.nio.file.Path
 import java8.nio.file.Paths
 import kotlinx.parcelize.Parcelize
@@ -333,7 +334,12 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     }
             }
             if (path == null) {
-                path = Settings.FILE_LIST_DEFAULT_DIRECTORY.valueCompat
+                val remembered = Settings.LAST_OPENED_FOLDER.valueCompat
+                path = if (Settings.REMEMBER_LAST_OPENED_FOLDER.valueCompat && Files.exists(remembered)) {
+                    remembered
+                } else {
+                    Settings.FILE_LIST_DEFAULT_DIRECTORY.valueCompat
+                }
             }
             viewModel.resetTo(path)
             if (pickOptions != null) {
@@ -364,7 +370,15 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         viewModel.selectedFilesLiveData.observe(viewLifecycleOwner) { onSelectedFilesChanged(it) }
         viewModel.pasteStateLiveData.observe(viewLifecycleOwner) { onPasteStateChanged(it) }
         Settings.FILE_NAME_ELLIPSIZE.observe(viewLifecycleOwner) { onFileNameEllipsizeChanged(it) }
+        Settings.SHOW_FULL_FILE_NAMES.observe(viewLifecycleOwner) { adapter.setShowFullFileNames(it) }
         viewModel.fileListLiveData.observe(viewLifecycleOwner) { onFileListChanged(it) }
+        viewModel.analysisModeLiveData.observe(viewLifecycleOwner) {
+            adapter.setAnalysisMode(it, viewModel.analysisResultsLiveData.value ?: emptyMap())
+            requireActivity().invalidateOptionsMenu()
+        }
+        viewModel.analysisResultsLiveData.observe(viewLifecycleOwner) {
+            adapter.setAnalysisMode(viewModel.isAnalysisMode, it)
+        }
         Settings.FILE_LIST_SHOW_HIDDEN_FILES.observe(viewLifecycleOwner) {
             onShowHiddenFilesChanged(it)
         }
@@ -441,6 +455,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         updateViewSortMenuItems()
         updateSelectAllMenuItem()
         updateShowHiddenFilesMenuItem()
+        updateAnalysisMenuItem()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -516,6 +531,13 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 selectAllFiles()
                 true
             }
+            R.id.action_analyze -> {
+                viewModel.setAnalysisMode(!viewModel.isAnalysisMode)
+                if (viewModel.isAnalysisMode) {
+                    viewModel.fileListStateful.value?.let { viewModel.analyze(it) }
+                }
+                true
+            }
             R.id.action_show_hidden_files -> {
                 setShowHiddenFiles(!menuBinding.showHiddenFilesItem.isChecked)
                 true
@@ -578,12 +600,23 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     }
 
     private fun onCurrentPathChanged(path: Path) {
+        if (Settings.REMEMBER_LAST_OPENED_FOLDER.valueCompat) {
+            Settings.LAST_OPENED_FOLDER.putValue(path)
+        }
         updateOverlayToolbar()
         updateBottomToolbar()
     }
 
     private fun onSearchViewExpandedChanged(expanded: Boolean) {
         updateViewSortMenuItems()
+    }
+
+    private fun updateAnalysisMenuItem() {
+        if (!this::menuBinding.isInitialized) return
+        menuBinding.analyzeItem.title = getString(
+            if (viewModel.isAnalysisMode) R.string.file_list_action_exit_analysis
+            else R.string.file_list_action_analyze
+        )
     }
 
     private fun onFileListChanged(stateful: Stateful<List<FileItem>>) {
@@ -617,6 +650,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         }
         if (stateful is Success) {
             viewModel.pendingState?.let { layoutManager.onRestoreInstanceState(it) }
+            if (viewModel.isAnalysisMode) viewModel.analyze(files!!)
         }
     }
 

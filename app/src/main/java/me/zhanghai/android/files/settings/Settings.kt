@@ -51,6 +51,22 @@ object Settings {
             R.bool.pref_default_value_file_list_show_hidden_files
         )
 
+    val LAST_OPENED_FOLDER: SettingLiveData<Path> = ParcelValueSettingLiveData(
+        R.string.pref_key_last_opened_folder,
+        @Suppress("DEPRECATION")
+        Paths.get(Environment.getExternalStorageDirectory().absolutePath)
+    )
+
+    val REMEMBER_LAST_OPENED_FOLDER: SettingLiveData<Boolean> = BooleanSettingLiveData(
+        R.string.pref_key_remember_last_opened_folder,
+        R.bool.pref_default_value_remember_last_opened_folder
+    )
+
+    val SHOW_FULL_FILE_NAMES: SettingLiveData<Boolean> = BooleanSettingLiveData(
+        R.string.pref_key_show_full_file_names,
+        R.bool.pref_default_value_show_full_file_names
+    )
+
     val FILE_LIST_VIEW_TYPE: SettingLiveData<FileViewType> =
         EnumSettingLiveData(
             R.string.pref_key_file_list_view_type, R.string.pref_default_value_file_list_view_type,

@@ -62,6 +62,16 @@
             android:title="@string/settings_default_directory_title"
             app:useSimpleSummaryProvider="true" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/pref_key_remember_last_opened_folder"
+            android:title="@string/settings_remember_last_opened_folder_title"
+            android:defaultValue="@bool/pref_default_value_remember_last_opened_folder" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/pref_key_show_full_file_names"
+            android:title="@string/settings_show_full_file_names_title"
+            android:defaultValue="@bool/pref_default_value_show_full_file_names" />
+
         <me.zhanghai.android.files.settings.StoragesPreference
             android:title="@string/settings_storages_title"
             android:summary="@string/settings_storages_summary_empty" />

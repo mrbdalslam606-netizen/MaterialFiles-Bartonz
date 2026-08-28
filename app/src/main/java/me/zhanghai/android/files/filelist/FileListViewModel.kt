@@ -5,10 +5,12 @@
 
 package me.zhanghai.android.files.filelist
 
+import android.os.AsyncTask
 import android.os.Parcelable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
+import java.util.concurrent.ExecutorService
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import java8.nio.file.Path
@@ -39,6 +41,35 @@ class FileListViewModel : ViewModel() {
     val currentPathLiveData = trailLiveData.map { it.currentPath }
     val currentPath: Path
         get() = currentPathLiveData.valueCompat
+
+    private val _analysisModeLiveData = MutableLiveData(false)
+    val analysisModeLiveData: LiveData<Boolean> = _analysisModeLiveData
+    val isAnalysisMode: Boolean
+        get() = _analysisModeLiveData.valueCompat
+
+    private val _analysisResultsLiveData = MutableLiveData<Map<Path, StorageAnalysisResult>>(emptyMap())
+    val analysisResultsLiveData: LiveData<Map<Path, StorageAnalysisResult>> = _analysisResultsLiveData
+    private var analysisTask: StorageAnalysisTask? = null
+
+    fun setAnalysisMode(enabled: Boolean) {
+        if (isAnalysisMode == enabled) return
+        _analysisModeLiveData.value = enabled
+        if (!enabled) {
+            analysisTask?.cancel()
+            analysisTask = null
+            _analysisResultsLiveData.value = emptyMap()
+        }
+    }
+
+    fun analyze(files: List<FileItem>) {
+        if (!isAnalysisMode) return
+        analysisTask?.cancel()
+        val currentPath = currentPath
+        _analysisResultsLiveData.value = files.associate { it.path to StorageAnalysisResult(null, null, isCalculating = true) }
+        analysisTask = StorageAnalysisTask(currentPath, files) { results ->
+            _analysisResultsLiveData.postValue(results)
+        }.also { it.start() }
+    }
 
     private val _searchStateLiveData = MutableLiveData(SearchState(false, ""))
     val searchStateLiveData: LiveData<SearchState> = _searchStateLiveData
@@ -234,6 +265,7 @@ class FileListViewModel : ViewModel() {
         }
 
     override fun onCleared() {
+        analysisTask?.cancel()
         _fileListLiveData.close()
     }
 

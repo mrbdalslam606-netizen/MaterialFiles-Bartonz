@@ -6,6 +6,8 @@
 package me.zhanghai.android.files.filelist
 
 import android.text.TextUtils
+import android.util.TypedValue
+import android.graphics.drawable.LayerDrawable
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -28,6 +30,7 @@ import me.zhanghai.android.files.databinding.FileItemGridBinding
 import me.zhanghai.android.files.databinding.FileItemListBinding
 import me.zhanghai.android.files.file.FileItem
 import me.zhanghai.android.files.file.fileSize
+import me.zhanghai.android.files.file.asFileSize
 import me.zhanghai.android.files.file.formatShort
 import me.zhanghai.android.files.file.iconRes
 import me.zhanghai.android.files.file.isApk
@@ -46,6 +49,20 @@ class FileListAdapter(
     private val listener: Listener
 ) : AnimatedListAdapter<FileItem, FileListAdapter.ViewHolder>(CALLBACK), PopupTextProvider {
     private var isSearching = false
+    private var analysisMode = false
+    private var analysisResults: Map<Path, StorageAnalysisResult> = emptyMap()
+    private var showFullFileNames = false
+
+    fun setShowFullFileNames(enabled: Boolean) {
+        showFullFileNames = enabled
+        notifyItemRangeChanged(0, itemCount)
+    }
+
+    fun setAnalysisMode(enabled: Boolean, results: Map<Path, StorageAnalysisResult>) {
+        analysisMode = enabled
+        analysisResults = results
+        notifyItemRangeChanged(0, itemCount)
+    }
 
     private lateinit var _viewType: FileViewType
     var viewType: FileViewType
@@ -181,15 +198,21 @@ class FileListAdapter(
         return holder.apply {
             itemLayout.apply {
                 val context = context
+                val typedValue = TypedValue()
+                context.theme.resolveAttribute(android.R.attr.colorAccent, typedValue, true)
                 val isMaterial3Theme = context.isMaterial3Theme
+                val analysisBar = AnalysisBarDrawable(typedValue.data)
+                background = LayerDrawable(arrayOf(
+                    analysisBar,
+                    if (viewType == FileViewType.GRID && isMaterial3Theme) {
+                        CheckableItemBackground.create(4f, 12f, context)
+                    } else {
+                        CheckableItemBackground.create(0f, 0f, context)
+                    }
+                ))
                 if (viewType == FileViewType.GRID && isMaterial3Theme) {
                     foregroundCompat =
                         context.getDrawableCompat(R.drawable.file_item_grid_foreground_material3)
-                }
-                background = if (viewType == FileViewType.GRID && isMaterial3Theme) {
-                    CheckableItemBackground.create(4f, 12f, context)
-                } else {
-                    CheckableItemBackground.create(0f, 0f, context)
                 }
             }
             thumbnailOutlineView?.apply {
@@ -224,8 +247,38 @@ class FileListAdapter(
         menu.findItem(R.id.action_copy).isVisible = !hasPickOptions
         val checked = file in selectedFiles
         holder.itemLayout.isChecked = checked
+        val analysis = analysisResults[file.path]
+        val analysisText = analysis?.let { result ->
+            val context = holder.itemLayout.context
+            when {
+                result.isCalculating -> "Calculating…"
+                result.size == null -> "Size unavailable"
+                result.isPartial -> "${result.size?.asFileSize()?.formatHumanReadable(context)} · Size partially unavailable"
+                else -> {
+                    val size = result.size
+                    val percent = result.percentage
+                    val displayPercent = when {
+                        percent == null -> null
+                        size == 0L -> "0.00%"
+                        percent < 0.01 -> "<0.01%"
+                        else -> String.format(Locale.getDefault(), "%.2f%%", percent)
+                    }
+                    listOf(size?.asFileSize()?.formatHumanReadable(context), displayPercent)
+                        .filterNotNull().joinToString(" · ")
+                }
+            }
+        }
+        val bar = (holder.itemLayout.background as? LayerDrawable)?.getDrawable(0)
+            as? AnalysisBarDrawable
+        bar?.fraction = ((analysis?.percentage ?: 0.0) / 100.0).toFloat()
         holder.nameText.apply {
-            if (isSingleLineCompat) {
+            if (showFullFileNames) {
+                isSingleLine = false
+                maxLines = Int.MAX_VALUE
+                ellipsize = null
+                isSelected = false
+            } else if (isSingleLineCompat) {
+                isSingleLine = true
                 val nameEllipsize = nameEllipsize
                 ellipsize = nameEllipsize
                 isSelected = nameEllipsize == TextUtils.TruncateAt.MARQUEE
@@ -316,8 +369,12 @@ class FileListAdapter(
                 setImageDrawable(null)
             }
         }
-        holder.nameText.text = file.name
-        holder.descriptionText?.text = if (isDirectory) {
+        holder.nameText.text = if (analysisMode && holder.descriptionText == null && analysisText != null) {
+            "${file.name}\n$analysisText"
+        } else file.name
+        holder.descriptionText?.text = if (analysisMode && analysisText != null) {
+            analysisText
+        } else if (isDirectory) {
             null
         } else {
             val context = holder.descriptionText!!.context
