@@ -477,9 +477,6 @@
     <string name="storage_edit_smb_server_domain">Domini</string>
     <string name="storage_edit_smb_server_connect_and_add">Connecta i afegeix</string>
     <string name="storage_edit_smb_server_add">Afegeix</string>
-        <item>Testimoni d\'accés</item>
-        <item>Cap</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s lliures de %2$s</string>
     <string name="navigation_add_storage">Afegeix emmagatzematge...</string>

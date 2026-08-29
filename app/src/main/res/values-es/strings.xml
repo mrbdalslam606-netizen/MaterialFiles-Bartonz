@@ -563,9 +563,6 @@
     <string name="storage_edit_smb_server_domain">Dominio</string>
     <string name="storage_edit_smb_server_connect_and_add">Conectar y añadir</string>
     <string name="storage_edit_smb_server_add">Añadir</string>
-        <item>Token de acceso</item>
-        <item>Ninguna</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s libre de %2$s</string>
     <string name="navigation_add_storage">Agregar almacenamiento…</string>

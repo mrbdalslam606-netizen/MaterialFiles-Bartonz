@@ -593,9 +593,6 @@
     <string name="storage_edit_smb_server_domain">Domena</string>
     <string name="storage_edit_smb_server_connect_and_add">Połącz i dodaj</string>
     <string name="storage_edit_smb_server_add">Dodaj</string>
-        <item>Token dostępu</item>
-        <item>Żaden</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s wolne z %2$s</string>
     <string name="navigation_add_storage">Dodaj nośnik…</string>

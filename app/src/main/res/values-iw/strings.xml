@@ -593,9 +593,6 @@
     <string name="storage_edit_smb_server_domain">שם תחום</string>
     <string name="storage_edit_smb_server_connect_and_add">התחברות והוספה</string>
     <string name="storage_edit_smb_server_add">הוספה</string>
-        <item>אסימון גישה</item>
-        <item>אין</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s פנוי מתוך %2$s</string>
     <string name="navigation_add_storage">הוספת אחסון…</string>

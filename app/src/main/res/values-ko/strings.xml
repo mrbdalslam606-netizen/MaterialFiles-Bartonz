@@ -503,9 +503,6 @@
     <string name="storage_edit_smb_server_domain">도메인</string>
     <string name="storage_edit_smb_server_connect_and_add">연결 및 추가</string>
     <string name="storage_edit_smb_server_add">추가</string>
-        <item>액세스 토큰</item>
-        <item>없음</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%2$s 중 %1$s 남음</string>
     <string name="navigation_add_storage">저장소 추가…</string>

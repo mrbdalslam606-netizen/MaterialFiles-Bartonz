@@ -533,9 +533,6 @@
     <string name="storage_edit_smb_server_domain">Domene</string>
     <string name="storage_edit_smb_server_connect_and_add">Koble til og legg til</string>
     <string name="storage_edit_smb_server_add">Legg til</string>
-        <item>Tilgangstoken</item>
-        <item>Ingen</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s av %2$s ledig</string>
     <string name="navigation_add_storage">Legg til lagring …</string>

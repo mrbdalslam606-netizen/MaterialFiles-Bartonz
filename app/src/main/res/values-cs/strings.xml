@@ -565,9 +565,6 @@
     <string name="storage_edit_smb_server_domain">Doména</string>
     <string name="storage_edit_smb_server_connect_and_add">Připojit se a přidat</string>
     <string name="storage_edit_smb_server_add">Přidat</string>
-        <item>Přístupový token</item>
-        <item>Žádné</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$svolných z %2$s</string>
     <string name="navigation_add_storage">Přidat úložiště…</string>

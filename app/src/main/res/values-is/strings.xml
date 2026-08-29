@@ -535,9 +535,6 @@
     <string name="storage_edit_smb_server_domain">Lén</string>
     <string name="storage_edit_smb_server_connect_and_add">Tengjast og bæta við</string>
     <string name="storage_edit_smb_server_add">Bæta við</string>
-        <item>Aðgangsteikn</item>
-        <item>Ekkert</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s laust af %2$s</string>
     <string name="navigation_add_storage">Bæta við geymslurými…</string>

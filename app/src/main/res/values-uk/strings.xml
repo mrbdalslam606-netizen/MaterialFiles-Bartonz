@@ -595,9 +595,6 @@
     <string name="storage_edit_smb_server_domain">Домен</string>
     <string name="storage_edit_smb_server_connect_and_add">З\'єднатися та додати</string>
     <string name="storage_edit_smb_server_add">Додати</string>
-        <item>Токен доступу</item>
-        <item>Жодного</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s вільно з %2$s</string>
     <string name="navigation_add_storage">Додати сховище…</string>

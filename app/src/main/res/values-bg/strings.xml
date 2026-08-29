@@ -521,9 +521,6 @@
     <string name="storage_edit_smb_server_domain">Домейн</string>
     <string name="storage_edit_smb_server_connect_and_add">Свързване и добавяне</string>
     <string name="storage_edit_smb_server_add">Добавяне</string>
-        <item>Код за достъп</item>
-        <item>Няма</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">Свободни са %1$s от %2$s</string>
     <string name="navigation_add_storage">Добавяне на хранилище…</string>

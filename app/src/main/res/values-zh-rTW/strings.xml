@@ -502,9 +502,6 @@
     <string name="storage_edit_smb_server_domain">網域</string>
     <string name="storage_edit_smb_server_connect_and_add">連線並新增</string>
     <string name="storage_edit_smb_server_add">新增</string>
-        <item>存取權杖</item>
-        <item>無</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">共 %2$s，剩餘 %1$s</string>
     <string name="navigation_add_storage">新增儲存空間…</string>

@@ -565,9 +565,6 @@
     <string name="storage_edit_smb_server_domain">Domaine</string>
     <string name="storage_edit_smb_server_connect_and_add">Connecter et ajouter</string>
     <string name="storage_edit_smb_server_add">Ajouter</string>
-        <item>Jeton d\'accès</item>
-        <item>Aucun</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s de libre sur %2$s</string>
     <string name="navigation_add_storage">Ajouter un support de stockage…</string>

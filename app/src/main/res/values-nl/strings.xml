@@ -533,9 +533,6 @@
     <string name="storage_edit_smb_server_domain">Domein</string>
     <string name="storage_edit_smb_server_connect_and_add">Verbinden en toevoegen</string>
     <string name="storage_edit_smb_server_add">Toevoegen</string>
-        <item>Toegangssleutel</item>
-        <item>Geen</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s van %2$s vrij</string>
     <string name="navigation_add_storage">Opslagmedium toevoegen…</string>

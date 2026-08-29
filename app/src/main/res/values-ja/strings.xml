@@ -503,9 +503,6 @@
     <string name="storage_edit_smb_server_domain">ドメイン</string>
     <string name="storage_edit_smb_server_connect_and_add">接続して追加</string>
     <string name="storage_edit_smb_server_add">追加</string>
-        <item>アクセストークン</item>
-        <item>なし</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">空き容量 %1$s / %2$s</string>
     <string name="navigation_add_storage">ストレージを追加…</string>

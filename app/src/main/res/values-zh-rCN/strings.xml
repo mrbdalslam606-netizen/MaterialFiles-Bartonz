@@ -502,9 +502,6 @@
     <string name="storage_edit_smb_server_domain">域</string>
     <string name="storage_edit_smb_server_connect_and_add">连接并添加</string>
     <string name="storage_edit_smb_server_add">添加</string>
-        <item>访问令牌</item>
-        <item>无</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">共 %2$s，剩余 %1$s</string>
     <string name="navigation_add_storage">添加存储空间…</string>

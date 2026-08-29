@@ -653,9 +653,6 @@
     <string name="storage_edit_smb_server_domain">دومين</string>
     <string name="storage_edit_smb_server_connect_and_add">قم بالاتصال والإضافة</string>
     <string name="storage_edit_smb_server_add">إضافة</string>
-        <item>رمز الوصول</item>
-        <item>لا شيء</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s خالي من %2$s</string>
     <string name="navigation_add_storage">إضافة وحدة تخزين…</string>

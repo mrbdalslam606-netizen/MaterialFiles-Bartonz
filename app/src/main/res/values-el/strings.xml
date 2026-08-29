@@ -533,9 +533,6 @@
     <string name="storage_edit_smb_server_domain">Τομέας</string>
     <string name="storage_edit_smb_server_connect_and_add">Σύνδεση και προσθήκη</string>
     <string name="storage_edit_smb_server_add">Προσθήκη</string>
-        <item>Διακριτικό πρόσβασης</item>
-        <item>Κανένα</item>
-    </string-array>
 
     <string name="navigation_storage_subtitle_format">%1$s ελεύθερα από %2$s</string>
     <string name="navigation_add_storage">Προσθήκη χώρου αποθήκευσης...</string>
