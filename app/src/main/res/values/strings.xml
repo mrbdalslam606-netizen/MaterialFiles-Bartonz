@@ -800,8 +800,6 @@
 
     <string name="shortcut_downloads_title" translatable="false">@string/navigation_standard_directory_downloads</string>
     <string name="shortcut_ftp_server_title" translatable="false">@string/ftp_server_title</string>
-    <string name="pref_key_remember_last_opened_folder">remember_last_opened_folder</string>
-    <string name="pref_key_show_full_file_names">show_full_file_names</string>
     <string name="file_list_action_analyze">Analyze</string>
     <string name="file_list_action_exit_analysis">Exit Analysis Mode</string>
     <string name="settings_remember_last_opened_folder_title">Remember last opened folder</string>

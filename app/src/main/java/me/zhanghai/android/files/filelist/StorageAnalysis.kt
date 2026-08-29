@@ -12,7 +12,7 @@ import java8.nio.file.LinkOption
 import java8.nio.file.Path
 import java8.nio.file.attribute.BasicFileAttributes
 import me.zhanghai.android.files.file.FileItem
-import me.zhanghai.android.files.file.getFileStore
+import me.zhanghai.android.files.provider.common.getFileStore
 import me.zhanghai.android.files.provider.common.newDirectoryStream
 import java.io.IOException
 import java.util.ArrayDeque

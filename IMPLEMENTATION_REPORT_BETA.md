@@ -1,68 +1,111 @@
-# Material Files Batonz — Beta Implementation Report
+# Material Files Batonz — dav4jvm Build Investigation Report
 
-## Scope
+## Scope and guardrails
 
-This implementation was made against the user-owned repository `mrbdalslam606-netizen/MaterialFiles-Bartonz`. The official upstream repository was not modified. All feature work is isolated on the branch `feature/storage-analysis-beta`.
+This investigation was performed against the user-owned repository `mrbdalslam606-netizen/MaterialFiles-Bartonz`, on branch `feature/storage-analysis-beta`. The upstream Material Files repository was not modified. The existing Storage Analysis, Restore Last Opened Path, and Show Full File Names implementation was preserved; only a duplicate-resource cleanup and an incorrect FileStore import exposed during compilation were corrected because they blocked validation of the current branch.
 
-The implementation covers the three requested areas: Storage Analysis View, Restore Last Opened Path, and Show Full File Names.
+No final dependency change was pushed. The repository was returned to the original declaration:
 
-## Implemented changes
-
-| Area | Implementation |
-|---|---|
-| Storage Analysis View | Added an `Analyze` action to the existing file-list overflow menu. The action toggles to `Exit Analysis Mode` while active and preserves the current directory and sorting order. |
-| Directory-size calculation | Added a background `StorageAnalysisTask` using an iterative work stack. It reads regular-file metadata, traverses directories without following symbolic links, checks interruption during traversal, closes directory streams immediately, and marks inaccessible or interrupted results as partial. |
-| Storage reference | Uses the existing NIO2 `Path.getFileStore().totalSpace` capability when available. Providers that cannot expose a reliable FileStore, including the current document provider, receive no fabricated percentage. |
-| UI rendering | Added a theme-derived proportional background bar beneath the existing list/grid item content. Analysis metadata displays a human-readable size and percentage, including `<0.01%` for non-zero values below the display threshold and `0.00%` for zero-byte values. |
-| Navigation state | Analysis state lives in `FileListViewModel`, so it remains active while navigating deeper and returning through the existing trail. The active task is cancelled when the mode is disabled or the ViewModel is cleared. |
-| Last opened folder | Added a disabled-by-default setting and a typed persisted Path setting. Startup restores the remembered location only when the setting is enabled and the location still exists; otherwise it falls back to the normal default directory. |
-| Full file names | Added a disabled-by-default setting. When enabled, list/grid filename TextViews become multi-line and remove ellipsizing; when disabled, the existing behavior is restored. |
-| Settings | Registered both user-facing toggles through the existing `Settings`, `SettingLiveData`, and preference XML infrastructure. |
-
-## Architecture and reuse
-
-The patch reuses the current `FileListFragment`, `FileListViewModel`, `FileListLiveData`, `FileListAdapter`, `TrailLiveData`, typed settings, NIO2 `Path`, and existing storage-provider abstractions. It does not introduce a parallel file model or a permanent database index.
-
-The analysis engine is deliberately separate from adapter code. The adapter only renders already-computed results and retains the existing selection, click, sorting, search, and file-operation behavior.
-
-## Reference screenshot interpretation
-
-The supplied screenshots show a toolbar storage-status chip, a centered analysis progress state with cancellation, and completed rows with a green proportional background bar and a right-aligned percentage. The implementation follows the functional concept while using Material Files theme colors and existing item layouts rather than copying the reference application's branding or assets.
-
-## Verification
-
-`git diff --check` passed. The project was configured with the locally installed Android SDK, but compilation could not reach Kotlin compilation because the repository baseline references an unavailable JitPack coordinate:
-
-```text
-com.github.bitfireAT:dav4jvm:02fe1a95e6
+```gradle
+implementation('com.github.bitfireAT:dav4jvm:02fe1a95e6')
 ```
 
-The repository comment points to a specific dav4jvm commit, but the referenced artifact is currently not retrievable from the configured repositories. Several alternate published coordinates were checked and were also unavailable through the same dependency route. The original dependency declaration was restored; no unrelated dependency change was committed.
+## Baseline
 
-Because the dependency resolution failure occurs before source compilation, a signed APK could not be produced in this environment. Device-level verification for SAF, SD cards, USB OTG, symbolic links, themes, large trees, and file-operation invalidation remains pending a successful dependency resolution and Android build environment.
+The first baseline build used the Android SDK installed locally and the repository's Gradle wrapper. The command was:
 
-## Release status
+```bash
+ANDROID_HOME=/home/ubuntu/android-sdk \
+PATH=/home/ubuntu/android-sdk/cmdline-tools/latest/bin:/home/ubuntu/android-sdk/platform-tools:$PATH \
+./gradlew assembleDebug --refresh-dependencies --no-daemon
+```
 
-The feature branch has been pushed to:
+The build failed at `:app:compileDebugAidl` before Kotlin compilation because Gradle could not resolve `com.github.bitfireAT:dav4jvm:02fe1a95e6`. Direct requests to the JitPack POM and JAR URLs also returned HTTP 404. This matches upstream Material Files issue [#1590][1].
 
-https://github.com/mrbdalslam606-netizen/MaterialFiles-Bartonz/tree/feature/storage-analysis-beta
+## Solution 1 — rescue the existing dependency
 
-A GitHub Beta release should be created only after the project can resolve dav4jvm and produce an APK. Publishing a release without a build artifact would be misleading. The next required action is to make the existing dav4jvm dependency available through a valid repository or replace it with a verified compatible artifact, then run `assembleDebug` or the project’s release build and attach the resulting APK to a prerelease tag.
+| Check | Result |
+|---|---|
+| Direct JitPack POM request | HTTP 404 for `02fe1a95e6` |
+| Direct JitPack JAR request | HTTP 404 for `02fe1a95e6` |
+| Referenced upstream commit | `c1bc14348831bcdb00f3a6eec4859b81c7dc3728` exists in the official dav4jvm repository |
+| Gradle command | `./gradlew assembleDebug --refresh-dependencies --no-daemon` |
+| Dependency resolved | No |
+| Kotlin compilation reached | No |
+| `assembleDebug` succeeded | No |
+| First real error | `Could not find com.github.bitfireAT:dav4jvm:02fe1a95e6` |
 
-## Known limitations and follow-up work
+The upstream issue contains a report that the full generated JitPack commit hash can work:
 
-The current patch intentionally does not fabricate percentages for SAF or remote providers that lack a reliable storage denominator. Directory results are calculated per visible directory item and are held in ViewModel state; a bounded persistent index was not introduced. Targeted cache invalidation after every `FileJobService` operation should be added in the next iteration if repeated analysis of large trees demonstrates a measurable need.
+```gradle
+implementation('com.github.bitfireAT:dav4jvm:02fe1a95e6b86e323bec3784d7d2fe2d4081dde6')
+```
 
-The settings and analysis strings currently use the base English resources. Existing translations can be updated in a separate localization pass after the behavior is validated.
+That full hash was tested with `--refresh-dependencies`, but it also returned `Could not find` from Google Maven, Maven Central, and JitPack. Therefore solution 1 failed, and the original short coordinate was restored.
+
+## Solution 2 — published dav4jvm version
+
+The official dav4jvm repository currently publishes newer semver releases, including 3.0.2 and 4.0.0. Source inspection showed a significant API-generation boundary. Material Files imports the legacy package/API surface such as `at.bitfire.dav4jvm.BasicDigestAuthHandler`, `DavResource`, `DavCollection`, `DavResourceAccessor`, and response/property APIs. dav4jvm 3.0.2 uses the newer Ktor-oriented implementation and changes authentication and response APIs. The official project build also exposes Ktor dependencies in this generation [2].
+
+The candidate `3.0.2` was tested using:
+
+```bash
+./gradlew assembleDebug --refresh-dependencies --no-daemon --max-workers=1 \
+  -Dorg.gradle.jvmargs='-Xmx1024m -XX:MaxMetaspaceSize=512m'
+```
+
+After resolving the candidate, Gradle reached `:app:compileDebugKotlin`, but compilation failed before `assembleDebug` completed. The decisive incompatibility was:
+
+```text
+Authentication.kt:43:76
+Argument type mismatch: actual type is 'CharArray', but 'String' was expected.
+```
+
+An earlier run also experienced a daemon disappearance under memory pressure, so the constrained single-worker build was used to obtain a deterministic compiler result. The candidate was rejected because it does not preserve the existing WebDAV API without source changes. No candidate dependency was left in the project.
+
+## Solution 3 — local source dependency
+
+The exact upstream commit `c1bc14348831bcdb00f3a6eec4859b81c7dc3728` was cloned from the official dav4jvm repository, vendored temporarily as a Gradle composite build, and substituted for the external module. No prebuilt JAR or AAR was used.
+
+The command was:
+
+```bash
+./gradlew clean assembleDebug --no-daemon --max-workers=1 \
+  -Dorg.gradle.jvmargs='-Xmx1024m -XX:MaxMetaspaceSize=512m'
+```
+
+The build successfully resolved and compiled the local source project far enough to reach the Material Files Kotlin compilation. It then failed with the same compatibility boundary:
+
+```text
+Authentication.kt:43:76
+Argument type mismatch: actual type is 'CharArray', but 'String' was expected.
+```
+
+This confirms that the exact source commit cannot be consumed by the current Material Files WebDAV code without rewriting the authentication integration. Such a rewrite is outside the requested dependency-only scope and would violate the requirement to preserve the current API and behavior. The composite build directory and all temporary settings were removed.
+
+| Solution | Dependency resolved | Kotlin compilation reached | `assembleDebug` | Final status |
+|---|---:|---:|---:|---|
+| 1. Existing short coordinate | No | No | No | Failed at dependency resolution |
+| 1b. Full JitPack commit hash | No | No | No | Failed at dependency resolution |
+| 2. dav4jvm 3.0.2 | Yes | Yes | No | Rejected: API incompatibility |
+| 3. Local c1bc143 source | Yes | Yes | No | Rejected: same API incompatibility |
+
+## Files changed during this investigation
+
+The dependency declaration was not changed in the final worktree. Temporary `settings.gradle` composite-build wiring, the temporary `dav4jvm-local` source tree, and `local.properties` were removed.
+
+The remaining worktree changes are limited to the previously implemented feature branch plus two necessary build-blocker corrections: `StorageAnalysis.kt` now imports the repository's existing `Path.getFileStore` extension from its correct package, and duplicate preference-key declarations were removed from the base string resource because the keys already belong in `donottranslate_prefs.xml`. The existing feature implementation itself was not redesigned.
+
+## Final conclusion
+
+No solution is currently proven to produce a successful `assembleDebug` without either restoring the unavailable JitPack artifact or rewriting the WebDAV integration. Consequently, no dependency change was pushed, no APK was created, and no new release was published from this investigation. The existing source-only beta release remains unchanged and must not be treated as an installable APK release.
+
+The least invasive next step is to make the exact original artifact available through a reliable internal or mirrored Maven repository while retaining the original API. A published dav4jvm 3.x/4.x upgrade should not be selected merely because it resolves; it requires a deliberate WebDAV adapter migration and separate regression testing.
 
 ## References
 
-[1]: https://github.com/zhanghai/MaterialFiles "Material Files upstream architecture and project context"
+[1]: https://github.com/zhanghai/MaterialFiles/issues/1590 "Material Files issue #1590: Building from sources fails due to broken dav4jvm dependency"
 
-[2]: https://developer.android.com/training/data-storage/shared/documents-files "Android Storage Access Framework documentation"
+[2]: https://github.com/bitfireAT/dav4jvm "Official dav4jvm repository and current source/API"
 
-[3]: https://developer.android.com/reference/java/nio/file/FileStore "Android FileStore API reference"
-
-[4]: https://developer.android.com/develop/ui/views/layout/recyclerview "Android RecyclerView documentation"
-
-[5]: https://github.com/newhinton/disky "Open-source Android filesystem analyzer reference"
+[3]: https://jitpack.io/ "JitPack Maven publishing service"

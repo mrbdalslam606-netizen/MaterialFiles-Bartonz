@@ -455,7 +455,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         updateViewSortMenuItems()
         updateSelectAllMenuItem()
         updateShowHiddenFilesMenuItem()
-        updateAnalysisMenuItem()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -609,14 +608,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     private fun onSearchViewExpandedChanged(expanded: Boolean) {
         updateViewSortMenuItems()
-    }
-
-    private fun updateAnalysisMenuItem() {
-        if (!this::menuBinding.isInitialized) return
-        menuBinding.analyzeItem.title = getString(
-            if (viewModel.isAnalysisMode) R.string.file_list_action_exit_analysis
-            else R.string.file_list_action_analyze
-        )
     }
 
     private fun onFileListChanged(stateful: Stateful<List<FileItem>>) {
