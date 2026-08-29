@@ -432,7 +432,6 @@
     <string name="storage_add_storage_ftp_server">Сървър за FTP</string>
     <string name="storage_add_storage_sftp_server">Сървър за SFTP</string>
     <string name="storage_add_storage_smb_server">Сървър за SMB</string>
-    <string name="storage_add_storage_webdav_server">Сървър за WebDAV</string>
     <string name="storage_edit_device_storage_title">Редактиране на хранилище</string>
     <string name="storage_edit_device_storage_name">Име</string>
     <string name="storage_edit_device_storage_path">Път</string>
@@ -522,31 +521,9 @@
     <string name="storage_edit_smb_server_domain">Домейн</string>
     <string name="storage_edit_smb_server_connect_and_add">Свързване и добавяне</string>
     <string name="storage_edit_smb_server_add">Добавяне</string>
-    <string name="storage_edit_webdav_server_title_edit">Променяне на сървър за WebDAV</string>
-    <string name="storage_edit_webdav_server_title_add">Нов сървър за WebDAV</string>
-    <string name="storage_edit_webdav_server_host">Име на машина</string>
-    <string name="storage_edit_webdav_server_host_error_empty">Въведете име на машина</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">Недействително име на машина</string>
-    <string name="storage_edit_webdav_server_port">Порт</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">Неприемлив порт</string>
-    <string name="storage_edit_webdav_server_path">Път</string>
-    <string name="storage_edit_webdav_server_path_placeholder">Може да бъде празно</string>
-    <string name="storage_edit_webdav_server_name">Име</string>
-    <string name="storage_edit_webdav_server_name_placeholder">Използване на името на машина</string>
-    <string name="storage_edit_webdav_server_protocol">Протокол</string>
-    <string name="storage_edit_webdav_server_authentication_type">Вид удостоверяване</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>Парола</item>
         <item>Код за достъп</item>
         <item>Няма</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">Потребител</string>
-    <string name="storage_edit_webdav_server_username_error_empty">Въведете потребителско име</string>
-    <string name="storage_edit_webdav_server_password">Парола</string>
-    <string name="storage_edit_webdav_server_access_token">Код за достъп</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">Въведете код за достъп</string>
-    <string name="storage_edit_webdav_server_connect_and_add">Свързване и добавяне</string>
-    <string name="storage_edit_webdav_server_add">Добавяне</string>
 
     <string name="navigation_storage_subtitle_format">Свободни са %1$s от %2$s</string>
     <string name="navigation_add_storage">Добавяне на хранилище…</string>

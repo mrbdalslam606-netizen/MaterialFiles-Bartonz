@@ -501,7 +501,6 @@
     <string name="storage_add_storage_ftp_server">FTP-сервер</string>
     <string name="storage_add_storage_sftp_server">SFTP сервер</string>
     <string name="storage_add_storage_smb_server">SMB-сервер</string>
-    <string name="storage_add_storage_webdav_server">WebDAV сервер</string>
     <string name="storage_edit_device_storage_title">Редактировать накопитель</string>
     <string name="storage_edit_device_storage_name">Имя</string>
     <string name="storage_edit_device_storage_path">Путь</string>
@@ -596,31 +595,9 @@
     <string name="storage_edit_smb_server_domain">Домен</string>
     <string name="storage_edit_smb_server_connect_and_add">Добавить и соединиться</string>
     <string name="storage_edit_smb_server_add">Добавить</string>
-    <string name="storage_edit_webdav_server_title_edit">Редактировать WebDAV сервер</string>
-    <string name="storage_edit_webdav_server_title_add">Добавить WebDAV сервер</string>
-    <string name="storage_edit_webdav_server_host">Название хоста</string>
-    <string name="storage_edit_webdav_server_host_error_empty">Введите название хоста</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">Недействительное название хоста</string>
-    <string name="storage_edit_webdav_server_port">Порт</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">Недействительный порт</string>
-    <string name="storage_edit_webdav_server_path">Путь</string>
-    <string name="storage_edit_webdav_server_path_placeholder">Может быть пустым</string>
-    <string name="storage_edit_webdav_server_name">Имя</string>
-    <string name="storage_edit_webdav_server_name_placeholder">Использовать название хоста</string>
-    <string name="storage_edit_webdav_server_protocol">Протокол</string>
-    <string name="storage_edit_webdav_server_authentication_type">Аутентификация</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>Пароль</item>
         <item>Токен доступа</item>
         <item>Нет</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">Имя пользователя</string>
-    <string name="storage_edit_webdav_server_username_error_empty">Введите имя пользователя</string>
-    <string name="storage_edit_webdav_server_password">Пароль</string>
-    <string name="storage_edit_webdav_server_access_token">Токен доступа</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">Введите токен доступа</string>
-    <string name="storage_edit_webdav_server_connect_and_add">Соединиться и добавить</string>
-    <string name="storage_edit_webdav_server_add">Добавить</string>
 
     <string name="navigation_storage_subtitle_format">%1$s свободно из %2$s</string>
     <string name="navigation_add_storage">Добавить накопитель…</string>

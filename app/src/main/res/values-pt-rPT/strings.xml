@@ -418,7 +418,6 @@
     <string name="storage_add_storage_ftp_server">Servidor FTP</string>
     <string name="storage_add_storage_sftp_server">Servidor SFTP</string>
     <string name="storage_add_storage_smb_server">Servidor SMB</string>
-    <string name="storage_add_storage_webdav_server">Servidor WebDAV</string>
     <string name="storage_edit_device_storage_title">Editar armazenamento</string>
     <string name="storage_edit_device_storage_name">Nome</string>
     <string name="storage_edit_device_storage_path">Caminho</string>
@@ -508,31 +507,9 @@
     <string name="storage_edit_smb_server_domain">Domínio</string>
     <string name="storage_edit_smb_server_connect_and_add">Conectar e adicionar</string>
     <string name="storage_edit_smb_server_add">Adicionar</string>
-    <string name="storage_edit_webdav_server_title_edit">Editar servidor WebDAV</string>
-    <string name="storage_edit_webdav_server_title_add">Adicionar servidor WebDAV</string>
-    <string name="storage_edit_webdav_server_host">Nome do servidor</string>
-    <string name="storage_edit_webdav_server_host_error_empty">Introduza um nome</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">Nome inválido</string>
-    <string name="storage_edit_webdav_server_port">Porta</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">Porta inválida</string>
-    <string name="storage_edit_webdav_server_path">Caminho</string>
-    <string name="storage_edit_webdav_server_path_placeholder">Pode ficar vazio</string>
-    <string name="storage_edit_webdav_server_name">Nome</string>
-    <string name="storage_edit_webdav_server_name_placeholder">Utilizar nome do servidor</string>
-    <string name="storage_edit_webdav_server_protocol">Protocolo</string>
-    <string name="storage_edit_webdav_server_authentication_type">Autenticação</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>Palavra-passe</item>
         <item>Token de acesso</item>
         <item>Não usar</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">Nome de utilizador</string>
-    <string name="storage_edit_webdav_server_username_error_empty">Introduza o nome de utilizador</string>
-    <string name="storage_edit_webdav_server_password">Palavra-passe</string>
-    <string name="storage_edit_webdav_server_access_token">Token de acesso</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">Introduza o token de acesso</string>
-    <string name="storage_edit_webdav_server_connect_and_add">Conectar e adicionar</string>
-    <string name="storage_edit_webdav_server_add">Adicionar</string>
 
     <string name="navigation_storage_subtitle_format">%1$s livres de %2$s</string>
     <string name="navigation_add_storage">Adicionar armazenamento…</string>

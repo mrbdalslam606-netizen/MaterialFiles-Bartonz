@@ -388,7 +388,6 @@
     <string name="storage_add_storage_ftp_server">Servidor FTP</string>
     <string name="storage_add_storage_sftp_server">Servidor SFTP</string>
     <string name="storage_add_storage_smb_server">Servidor SMB</string>
-    <string name="storage_add_storage_webdav_server">Servidor WebDAV</string>
     <string name="storage_edit_device_storage_title">Edita l\'emmagatzematge del dispositiu</string>
     <string name="storage_edit_device_storage_name">Nom</string>
     <string name="storage_edit_device_storage_path">Camí</string>
@@ -478,31 +477,9 @@
     <string name="storage_edit_smb_server_domain">Domini</string>
     <string name="storage_edit_smb_server_connect_and_add">Connecta i afegeix</string>
     <string name="storage_edit_smb_server_add">Afegeix</string>
-    <string name="storage_edit_webdav_server_title_edit">Edita el servidor WebDAV</string>
-    <string name="storage_edit_webdav_server_title_add">Afegeix un servidor WebDAV</string>
-    <string name="storage_edit_webdav_server_host">Nom de l\'amfitrió</string>
-    <string name="storage_edit_webdav_server_host_error_empty">Introduïu el nom de l\'amfitrió</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">El nom d\'amfitrió no és vàlid</string>
-    <string name="storage_edit_webdav_server_port">Port</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">El port no és vàlid</string>
-    <string name="storage_edit_webdav_server_path">Camí</string>
-    <string name="storage_edit_webdav_server_path_placeholder">Es pot deixar buit</string>
-    <string name="storage_edit_webdav_server_name">Nom</string>
-    <string name="storage_edit_webdav_server_name_placeholder">Fes servir el nom de l\'amfitrió</string>
-    <string name="storage_edit_webdav_server_protocol">Protocol</string>
-    <string name="storage_edit_webdav_server_authentication_type">Autenticació</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>Contrasenya</item>
         <item>Testimoni d\'accés</item>
         <item>Cap</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">Nom d\'usuari</string>
-    <string name="storage_edit_webdav_server_username_error_empty">Introduïu un nom d\'usuari</string>
-    <string name="storage_edit_webdav_server_password">Contrasenya</string>
-    <string name="storage_edit_webdav_server_access_token">Testimoni d\'accés</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">Introduïu un testimoni d\'accés</string>
-    <string name="storage_edit_webdav_server_connect_and_add">Connecta i afegeix</string>
-    <string name="storage_edit_webdav_server_add">Afegeix</string>
 
     <string name="navigation_storage_subtitle_format">%1$s lliures de %2$s</string>
     <string name="navigation_add_storage">Afegeix emmagatzematge...</string>

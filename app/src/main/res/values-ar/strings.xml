@@ -559,7 +559,6 @@
     <string name="storage_add_storage_ftp_server">خادم FTP </string>
     <string name="storage_add_storage_sftp_server">خادم SFTP </string>
     <string name="storage_add_storage_smb_server">خادم SMB</string>
-    <string name="storage_add_storage_webdav_server">خادم WebDAV</string>
     <string name="storage_edit_device_storage_title">تحرير وحدة تخزين الجهاز</string>
     <string name="storage_edit_device_storage_name">الاسم</string>
     <string name="storage_edit_device_storage_path">المسار</string>
@@ -654,31 +653,9 @@
     <string name="storage_edit_smb_server_domain">دومين</string>
     <string name="storage_edit_smb_server_connect_and_add">قم بالاتصال والإضافة</string>
     <string name="storage_edit_smb_server_add">إضافة</string>
-    <string name="storage_edit_webdav_server_title_edit">تعديل خادم WebDAV</string>
-    <string name="storage_edit_webdav_server_title_add">إضافة خادم WebDAV</string>
-    <string name="storage_edit_webdav_server_host">اسم المضيف</string>
-    <string name="storage_edit_webdav_server_host_error_empty">أدخل اسم المضيف</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">اسم مضيف غير صالح</string>
-    <string name="storage_edit_webdav_server_port">منفذ</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">منفذ غير صالح</string>
-    <string name="storage_edit_webdav_server_path">المسار</string>
-    <string name="storage_edit_webdav_server_path_placeholder">يمكن تركه فارغاً</string>
-    <string name="storage_edit_webdav_server_name">الاسم</string>
-    <string name="storage_edit_webdav_server_name_placeholder">استخدم اسم المضيف</string>
-    <string name="storage_edit_webdav_server_protocol">بروتوكول</string>
-    <string name="storage_edit_webdav_server_authentication_type">مصداقة</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>كلمة المرور</item>
         <item>رمز الوصول</item>
         <item>لا شيء</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">اسم المستخدم</string>
-    <string name="storage_edit_webdav_server_username_error_empty">أدخل اسم المستخدم</string>
-    <string name="storage_edit_webdav_server_password">كلمة المرور</string>
-    <string name="storage_edit_webdav_server_access_token">رمز الوصول</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">أدخل رمز الوصول</string>
-    <string name="storage_edit_webdav_server_connect_and_add">ربط وإضافة</string>
-    <string name="storage_edit_webdav_server_add">إضافة</string>
 
     <string name="navigation_storage_subtitle_format">%1$s خالي من %2$s</string>
     <string name="navigation_add_storage">إضافة وحدة تخزين…</string>

@@ -501,7 +501,6 @@
     <string name="storage_add_storage_ftp_server">FTP-сервер</string>
     <string name="storage_add_storage_sftp_server">SFTP-сервер</string>
     <string name="storage_add_storage_smb_server">SMB-сервер</string>
-    <string name="storage_add_storage_webdav_server">WebDAV сервер</string>
     <string name="storage_edit_device_storage_title">Змінити сховище пристрою</string>
     <string name="storage_edit_device_storage_name">Назва</string>
     <string name="storage_edit_device_storage_path">Шлях</string>
@@ -596,31 +595,9 @@
     <string name="storage_edit_smb_server_domain">Домен</string>
     <string name="storage_edit_smb_server_connect_and_add">З\'єднатися та додати</string>
     <string name="storage_edit_smb_server_add">Додати</string>
-    <string name="storage_edit_webdav_server_title_edit">Змінити WebDAV сервер</string>
-    <string name="storage_edit_webdav_server_title_add">Додати WebDAV сервер</string>
-    <string name="storage_edit_webdav_server_host">Назва хоста</string>
-    <string name="storage_edit_webdav_server_host_error_empty">Уведіть назву хоста</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">Недійсна назва хоста</string>
-    <string name="storage_edit_webdav_server_port">Порт</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">Недійсний порт</string>
-    <string name="storage_edit_webdav_server_path">Шлях</string>
-    <string name="storage_edit_webdav_server_path_placeholder">Може бути порожнім</string>
-    <string name="storage_edit_webdav_server_name">Назва</string>
-    <string name="storage_edit_webdav_server_name_placeholder">Використовувати назву хоста</string>
-    <string name="storage_edit_webdav_server_protocol">Протокол</string>
-    <string name="storage_edit_webdav_server_authentication_type">Автентифікація</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>Пароль</item>
         <item>Токен доступу</item>
         <item>Жодного</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">Імʼя користувача</string>
-    <string name="storage_edit_webdav_server_username_error_empty">Введіть ім\'я користувача</string>
-    <string name="storage_edit_webdav_server_password">Пароль</string>
-    <string name="storage_edit_webdav_server_access_token">Токен доступу</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">Введіть токен доступу</string>
-    <string name="storage_edit_webdav_server_connect_and_add">З\'єднатися та додати</string>
-    <string name="storage_edit_webdav_server_add">Додати</string>
 
     <string name="navigation_storage_subtitle_format">%1$s вільно з %2$s</string>
     <string name="navigation_add_storage">Додати сховище…</string>

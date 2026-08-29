@@ -439,7 +439,6 @@
     <string name="storage_add_storage_ftp_server">FTP-tjener</string>
     <string name="storage_add_storage_sftp_server">SFTP-tjener</string>
     <string name="storage_add_storage_smb_server">SMB-tjener</string>
-    <string name="storage_add_storage_webdav_server">WebDAV-tjener</string>
     <string name="storage_edit_device_storage_title">Rediger lagring på enheten</string>
     <string name="storage_edit_device_storage_name">Navn</string>
     <string name="storage_edit_device_storage_path">Bane</string>
@@ -534,31 +533,9 @@
     <string name="storage_edit_smb_server_domain">Domene</string>
     <string name="storage_edit_smb_server_connect_and_add">Koble til og legg til</string>
     <string name="storage_edit_smb_server_add">Legg til</string>
-    <string name="storage_edit_webdav_server_title_edit">Rediger WebDAV-tjener</string>
-    <string name="storage_edit_webdav_server_title_add">Legg til WebDAV-tjener</string>
-    <string name="storage_edit_webdav_server_host">Vertsnavn</string>
-    <string name="storage_edit_webdav_server_host_error_empty">Skriv inn et vertsnavn</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">Ugyldig vertsnavn</string>
-    <string name="storage_edit_webdav_server_port">Port</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">Ugyldig port</string>
-    <string name="storage_edit_webdav_server_path">Bane</string>
-    <string name="storage_edit_webdav_server_path_placeholder">Kan være tomt</string>
-    <string name="storage_edit_webdav_server_name">Navn</string>
-    <string name="storage_edit_webdav_server_name_placeholder">Bruk vertsnavn</string>
-    <string name="storage_edit_webdav_server_protocol">Protokoll</string>
-    <string name="storage_edit_webdav_server_authentication_type">Autentisering</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>Passord</item>
         <item>Tilgangstoken</item>
         <item>Ingen</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">Brukernavn</string>
-    <string name="storage_edit_webdav_server_username_error_empty">Skriv inn et brukernavn</string>
-    <string name="storage_edit_webdav_server_password">Passord</string>
-    <string name="storage_edit_webdav_server_access_token">Tilgangstoken</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">Skriv inn et tilgangstoken</string>
-    <string name="storage_edit_webdav_server_connect_and_add">Koble til og legg til</string>
-    <string name="storage_edit_webdav_server_add">Legg til</string>
 
     <string name="navigation_storage_subtitle_format">%1$s av %2$s ledig</string>
     <string name="navigation_add_storage">Legg til lagring …</string>

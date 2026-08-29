@@ -499,7 +499,6 @@
     <string name="storage_add_storage_ftp_server">שרת FTP</string>
     <string name="storage_add_storage_sftp_server">שרת SFTP</string>
     <string name="storage_add_storage_smb_server">שרת SMB</string>
-    <string name="storage_add_storage_webdav_server">שרת WebDAV</string>
     <string name="storage_edit_device_storage_title">עריכת אחסון ההתקן</string>
     <string name="storage_edit_device_storage_name">שם</string>
     <string name="storage_edit_device_storage_path">נתיב</string>
@@ -594,31 +593,9 @@
     <string name="storage_edit_smb_server_domain">שם תחום</string>
     <string name="storage_edit_smb_server_connect_and_add">התחברות והוספה</string>
     <string name="storage_edit_smb_server_add">הוספה</string>
-    <string name="storage_edit_webdav_server_title_edit">עריכת שרת WebDAV</string>
-    <string name="storage_edit_webdav_server_title_add">הוספת שרת WebDAV</string>
-    <string name="storage_edit_webdav_server_host">שם מארח</string>
-    <string name="storage_edit_webdav_server_host_error_empty">נא למלא שם מארח</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">שם מארח שגוי</string>
-    <string name="storage_edit_webdav_server_port">פתחה</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">פתחה שגויה</string>
-    <string name="storage_edit_webdav_server_path">נתיב</string>
-    <string name="storage_edit_webdav_server_path_placeholder">אפשר להשאיר ריק</string>
-    <string name="storage_edit_webdav_server_name">שם</string>
-    <string name="storage_edit_webdav_server_name_placeholder">להשתמש בשם המארח</string>
-    <string name="storage_edit_webdav_server_protocol">פרוטוקול</string>
-    <string name="storage_edit_webdav_server_authentication_type">אימות</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>סיסמה</item>
         <item>אסימון גישה</item>
         <item>אין</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">שם משתמש</string>
-    <string name="storage_edit_webdav_server_username_error_empty">נא למלא שם משתמש</string>
-    <string name="storage_edit_webdav_server_password">סיסמה</string>
-    <string name="storage_edit_webdav_server_access_token">אסימון גישה</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">נא לספק אסימון גישה</string>
-    <string name="storage_edit_webdav_server_connect_and_add">התחברות והוספה</string>
-    <string name="storage_edit_webdav_server_add">הוספה</string>
 
     <string name="navigation_storage_subtitle_format">%1$s פנוי מתוך %2$s</string>
     <string name="navigation_add_storage">הוספת אחסון…</string>

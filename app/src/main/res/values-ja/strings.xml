@@ -409,7 +409,6 @@
     <string name="storage_add_storage_ftp_server">FTP サーバー</string>
     <string name="storage_add_storage_sftp_server">SFTP サーバー</string>
     <string name="storage_add_storage_smb_server">SMB サーバー</string>
-    <string name="storage_add_storage_webdav_server">WebDAV サーバー</string>
     <string name="storage_edit_device_storage_title">デバイスのストレージを編集</string>
     <string name="storage_edit_device_storage_name">名前</string>
     <string name="storage_edit_device_storage_path">パス</string>
@@ -504,31 +503,9 @@
     <string name="storage_edit_smb_server_domain">ドメイン</string>
     <string name="storage_edit_smb_server_connect_and_add">接続して追加</string>
     <string name="storage_edit_smb_server_add">追加</string>
-    <string name="storage_edit_webdav_server_title_edit">WebDAV サーバーを編集</string>
-    <string name="storage_edit_webdav_server_title_add">WebDAV サーバーを追加</string>
-    <string name="storage_edit_webdav_server_host">ホスト名</string>
-    <string name="storage_edit_webdav_server_host_error_empty">ホスト名を入力してください</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">無効なホスト名です</string>
-    <string name="storage_edit_webdav_server_port">ポート</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">無効なポートです</string>
-    <string name="storage_edit_webdav_server_path">パス</string>
-    <string name="storage_edit_webdav_server_path_placeholder">空白にもできます</string>
-    <string name="storage_edit_webdav_server_name">名前</string>
-    <string name="storage_edit_webdav_server_name_placeholder">ホスト名を使用する</string>
-    <string name="storage_edit_webdav_server_protocol">プロトコル</string>
-    <string name="storage_edit_webdav_server_authentication_type">認証</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>パスワード</item>
         <item>アクセストークン</item>
         <item>なし</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">ユーザー名</string>
-    <string name="storage_edit_webdav_server_username_error_empty">ユーザー名を入力してください</string>
-    <string name="storage_edit_webdav_server_password">パスワード</string>
-    <string name="storage_edit_webdav_server_access_token">アクセストークン</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">アクセストークンを入力してください</string>
-    <string name="storage_edit_webdav_server_connect_and_add">接続して追加</string>
-    <string name="storage_edit_webdav_server_add">追加</string>
 
     <string name="navigation_storage_subtitle_format">空き容量 %1$s / %2$s</string>
     <string name="navigation_add_storage">ストレージを追加…</string>

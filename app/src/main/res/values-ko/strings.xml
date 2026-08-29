@@ -409,7 +409,6 @@
     <string name="storage_add_storage_ftp_server">FTP 서버</string>
     <string name="storage_add_storage_sftp_server">SFTP 서버</string>
     <string name="storage_add_storage_smb_server">SMB 서버</string>
-    <string name="storage_add_storage_webdav_server">WebDAV 서버</string>
     <string name="storage_edit_device_storage_title">기기 저장소 편집</string>
     <string name="storage_edit_device_storage_name">이름</string>
     <string name="storage_edit_device_storage_path">경로</string>
@@ -504,31 +503,9 @@
     <string name="storage_edit_smb_server_domain">도메인</string>
     <string name="storage_edit_smb_server_connect_and_add">연결 및 추가</string>
     <string name="storage_edit_smb_server_add">추가</string>
-    <string name="storage_edit_webdav_server_title_edit">WebDAV 서버 편집</string>
-    <string name="storage_edit_webdav_server_title_add">WebDAV 서버 추가</string>
-    <string name="storage_edit_webdav_server_host">호스트 이름</string>
-    <string name="storage_edit_webdav_server_host_error_empty">호스트 이름을 입력하세요</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">올바르지 않은 호스트 이름</string>
-    <string name="storage_edit_webdav_server_port">포트</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">올바르지 않은 포트</string>
-    <string name="storage_edit_webdav_server_path">경로</string>
-    <string name="storage_edit_webdav_server_path_placeholder">비워둘 수 있음</string>
-    <string name="storage_edit_webdav_server_name">이름</string>
-    <string name="storage_edit_webdav_server_name_placeholder">호스트 이름 사용</string>
-    <string name="storage_edit_webdav_server_protocol">프로토콜</string>
-    <string name="storage_edit_webdav_server_authentication_type">인증</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>비밀번호</item>
         <item>액세스 토큰</item>
         <item>없음</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">사용자 이름</string>
-    <string name="storage_edit_webdav_server_username_error_empty">사용자 이름을 입력하세요</string>
-    <string name="storage_edit_webdav_server_password">비밀번호</string>
-    <string name="storage_edit_webdav_server_access_token">액세스 토큰</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">액세스 토큰을 입력하세요</string>
-    <string name="storage_edit_webdav_server_connect_and_add">연결 및 추가</string>
-    <string name="storage_edit_webdav_server_add">추가</string>
 
     <string name="navigation_storage_subtitle_format">%2$s 중 %1$s 남음</string>
     <string name="navigation_add_storage">저장소 추가…</string>

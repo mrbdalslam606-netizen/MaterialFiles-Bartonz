@@ -439,7 +439,6 @@
     <string name="storage_add_storage_ftp_server">Διακομιστής FTP</string>
     <string name="storage_add_storage_sftp_server">Διακομιστής SFTP</string>
     <string name="storage_add_storage_smb_server">Διακομιστής SMB</string>
-    <string name="storage_add_storage_webdav_server">Διακομιστής WebDAV</string>
     <string name="storage_edit_device_storage_title">Επεξεργασία χώρου αποθήκευσης συσκευής</string>
     <string name="storage_edit_device_storage_name">Όνομα</string>
     <string name="storage_edit_device_storage_path">Διαδρομή</string>
@@ -534,31 +533,9 @@
     <string name="storage_edit_smb_server_domain">Τομέας</string>
     <string name="storage_edit_smb_server_connect_and_add">Σύνδεση και προσθήκη</string>
     <string name="storage_edit_smb_server_add">Προσθήκη</string>
-    <string name="storage_edit_webdav_server_title_edit">Επεξεργασία διακομιστή WebDAV</string>
-    <string name="storage_edit_webdav_server_title_add">Προσθήκη διακομιστή WebDAV</string>
-    <string name="storage_edit_webdav_server_host">Όνομα υπολογιστή</string>
-    <string name="storage_edit_webdav_server_host_error_empty">Εισάγετε ένα όνομα υπολογιστή</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">Μη έγκυρο όνομα υπολογιστή</string>
-    <string name="storage_edit_webdav_server_port">Θύρα</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">Μη έγκυρη θύρα</string>
-    <string name="storage_edit_webdav_server_path">Διαδρομή</string>
-    <string name="storage_edit_webdav_server_path_placeholder">Μπορεί να μείνει κενό</string>
-    <string name="storage_edit_webdav_server_name">Όνομα</string>
-    <string name="storage_edit_webdav_server_name_placeholder">Χρήση ονόματος υπολογιστή</string>
-    <string name="storage_edit_webdav_server_protocol">Πρωτόκολλο</string>
-    <string name="storage_edit_webdav_server_authentication_type">Αυθεντικοποίηση</string>
-    <string-array name="storage_edit_webdav_server_authentication_type_entries">
-        <item>Κωδικός</item>
         <item>Διακριτικό πρόσβασης</item>
         <item>Κανένα</item>
     </string-array>
-    <string name="storage_edit_webdav_server_username">Όνομα χρήστη</string>
-    <string name="storage_edit_webdav_server_username_error_empty">Εισάγετε ένα όνομα χρήστη</string>
-    <string name="storage_edit_webdav_server_password">Κωδικός</string>
-    <string name="storage_edit_webdav_server_access_token">Διακριτικό πρόσβασης</string>
-    <string name="storage_edit_webdav_server_access_token_error_empty">Εισάγετε ένα διακριτικό πρόσβασης</string>
-    <string name="storage_edit_webdav_server_connect_and_add">Σύνδεση και προσθήκη</string>
-    <string name="storage_edit_webdav_server_add">Προσθήκη</string>
 
     <string name="navigation_storage_subtitle_format">%1$s ελεύθερα από %2$s</string>
     <string name="navigation_add_storage">Προσθήκη χώρου αποθήκευσης...</string>
